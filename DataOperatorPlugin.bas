@@ -13,7 +13,7 @@ Public Function MergeArray(arr1 As Variant, arr2 As Variant) As Variant
     Dim result() As Variant
     
     '若輸入陣列不是同型別時, 則報錯
-    If (VarType(arr1) + VarType(arr2)/ 2 <> VarType(arr1) Then
+    If (VarType(arr1) + VarType(arr2)) / 2 <> VarType(arr1) Then
         GoTo OuputStep
     
     End If
@@ -33,7 +33,7 @@ Public Function MergeArray(arr1 As Variant, arr2 As Variant) As Variant
     Next i
     
     ' 設定結果陣列大小
-    ReDim result(coll.Count - 1)
+    ReDim result(coll.count - 1)
     
     i = LBound(result)
     For Each Item In coll
@@ -66,3 +66,47 @@ Function GetTabSpace(count As Integer) As String
     GetTabSpace = result
 
 End Function
+
+'測試陣列是否無效
+'arr = 陣列物件
+Public Function IsVarArrayValid(arr As Variant) As Boolean
+
+    On Error GoTo catchError
+    
+    Dim i As Integer
+    i = UBound(arr)
+    
+    IsVarArrayValid = True
+    Exit Function
+    
+catchError:
+    IsVarArrayValid = False
+
+End Function
+
+'將字串表示的陣列轉換成陣列物件
+'arrStr = 陣列字串
+Public Function ConvertStringToArray(arrStr As String) As Variant
+
+    Dim content As String
+    content = Trim(arrStr)
+    content = Replace(content, "[", Empty)
+    content = Replace(content, "]", Empty)
+
+    Dim resultArr As Variant
+    resultArr = Split(content, ",")
+
+    ConvertStringToArray = resultArr
+
+End Function
+
+'取代字串
+Public Function Remove(origin As String, keyWord As String) As String
+
+    Dim newContent As String
+    newContent = Replace(origin, keyWord, Empty)
+
+    Remove = newContent
+
+End Function
+

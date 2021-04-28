@@ -19,6 +19,7 @@ Public Sub PrintArrayElements(elements As Variant)
     Next
     
     MsgBox message
+    Exit Sub
     
 catchError:
     MsgBox "[ERROR]錯誤的輸入參數"
