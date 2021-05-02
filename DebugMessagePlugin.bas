@@ -15,7 +15,7 @@ Public Sub PrintArrayElements(elements As Variant)
     
     Dim i As Integer
     For i = LBound(elements) To UBound(elements)
-        message = message & "[" & i & "] = " & elements(i) & vbCrLf
+        message = message & "[" & i & "] = " & elements(i) & "(" & TypeName(elements(i)) & ")" & vbCrLf
     Next
     
     MsgBox message
@@ -25,5 +25,3 @@ catchError:
     MsgBox "[ERROR]錯誤的輸入參數"
 
 End Sub
-
-

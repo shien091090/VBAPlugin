@@ -35,19 +35,6 @@ Public Function GetAddressBySearch(searchRange As Range ,searchKey As String, ro
 
 End Function
 
-'刪除字串中的指定部分
-'origin = 原始字串
-'KeyWord = 欲刪除的關鍵字
-'返回新的字串(string)
-Public Function ContentPartRemove(origin As String, KeyWord As String) As String
-
-    Dim newContent As String
-    newContent = Replace(origin, KeyWord, Empty)
-
-    Remove = newContent
-
-End Function
-
 '指定儲存格範圍, 取得範圍中所有不重複的值並透過輸入索引取得對應的值
 'address = 指定儲存格範圍位址
 'index = 索引
